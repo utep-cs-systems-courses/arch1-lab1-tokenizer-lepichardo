@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "tokenizer.h"
 #include "history.h"
+#include "uimain.c"
 
 /*
     The following is a simple testing script with a single example of input
