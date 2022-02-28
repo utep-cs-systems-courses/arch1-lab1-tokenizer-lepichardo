@@ -115,8 +115,14 @@ int main(void){
   printf("This is the print_history(List *list)\n");
   printf("Printing list...\n");
   print_history(newList);
-  printf("List printed!\n");
+  printf("List printed!\n\n");
 
+  // This is the free_history(List *list) method
+  printf("This is the free_history(List *list)\n");
+  printf("Freeing history...\n");
+  free_history(newList);
+  printf("History freed!\n\n");
+  print_history(newList);
   printf("\n");
   
 }

@@ -36,7 +36,7 @@ void add_history(List *list, char *str){
 
 char *get_history(List *list, int id){
   // Creating space for the temporary variable
-  struct s_Item *tempItem = (Item*)malloc(sizeof(Item));
+  struct s_Item *tempItem;
   // Assigning the temporary variable with the head of the list
   tempItem = (*list).root;
   // Iterating through the list 
@@ -55,19 +55,13 @@ char *get_history(List *list, int id){
 
 void print_history(List *list){
   // Creating space in memory for our temporaty variable
-  struct s_Item *tempItem = (Item*)malloc(sizeof(Item));
+  struct s_Item *tempItem;
   // Assigning the temporary variable with the head
   tempItem = (*list).root;
   // Checking if the head is empty
   if(tempItem == NULL){
     printf("Nothing to print...\n");
     // Return since there is nothign to print
-    return;
-  }
-  // Checking if head has an item
-  if(tempItem->next == NULL){
-    printf("Only the head with no Items...\n");
-    // Return since there is nothing to print
     return;
   }
   // Assigning the head with the first item of the list
@@ -81,4 +75,14 @@ void print_history(List *list){
   }
 }
 
-void free_history(List *list){}
+void free_history(List *list){
+  // Loop to iterate through the list
+  while((*list).root->next != NULL){
+    // Freeing eCH ELEMENT IN THE LIST
+    free((*list).root->next);
+    // Accesiing the next element in the list
+    (*list).root->next = (*list).root->next->next;
+  }
+  // Freeing the root
+  free((*list).root);
+}
