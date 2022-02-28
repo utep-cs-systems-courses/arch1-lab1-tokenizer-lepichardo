@@ -131,9 +131,7 @@ void print_tokens(char **tokens){
   // Iterate thtough token to print
   while(*tokens){
     // Print the tokens by order
-    printf("Token[%d] = ",i);
-    printf(*tokens);
-    printf("\n");
+    printf("Token[%d] = %s\n",i,*tokens);
     // Incrementing i
     i++;
     // Change to print next token
