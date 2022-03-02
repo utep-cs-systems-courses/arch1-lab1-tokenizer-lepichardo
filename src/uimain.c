@@ -4,30 +4,31 @@
 #include "tokenizer.h"
 
 char *getString(){
-  
   char c;
   char *str = (char*)malloc(sizeof(char));
   int i = 0;
+  // Loop to assign each charcater to str
   while((c = getchar()) != EOF && c!='\n'){
     *(str + i) = c;
     i++;
   }
+  // Look for the first non space
   str = word_start(str);
   printf("\n");
+  // Return str
   return str;
 }
 
-
 int main(void){
   // Variables used
-  char **tokens;    // Tokens to tokenize each string
-  char *str = (char*)malloc(sizeof(char));    // String enterd by user
-  struct s_List *history = init_history();    // List of history
-  int inOut = 1;    // int to know if we continue loop or not
-  int id;    // id of history
+  char **tokens;                            // Tokens to tokenize each string
+  char *str = (char*)malloc(sizeof(char));  // String enterd by user
+  struct s_List *history = init_history();  // List of history
+  int inOut = 1;                            // int to know if we continue loop or not
+  int id;                                   // id of history
   
   while(inOut){
-    printf("\nEnter what you want to do next:(a to enter a string(followed by the string), p to print history, t to get specific id history as tokens, g to get a specific id of the history, f to free history, q to quit)\n>");
+    printf("\nEnter what you want to do next:(a to enter a string(followed by the string), p to print history, t to get specific id of the history as tokens, g to get a specific id of the history, f to free history, q to quit)\n>");
     char c;
     while((c = getchar()) == '\n');
     switch(c){

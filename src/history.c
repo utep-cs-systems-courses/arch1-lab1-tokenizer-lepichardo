@@ -74,7 +74,7 @@ void print_history(List *list){
   // Iterating through the list with the while loop
   while(tempItem != NULL){
     // Printing the current elelment of the list
-    printf("History[%d]= %s\n",tempItem->id, tempItem->str);
+    printf("History[%d] = %s\n",tempItem->id, tempItem->str);
     // Checking the next element of the list
     tempItem = tempItem->next;
   }
