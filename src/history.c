@@ -35,18 +35,14 @@ void add_history(List *list, char *str){
 }
 
 char *get_history(List *list, int id){
-  // Return first item in list
-  if(id == 0){
-    return list->root->str;
-  }
   // Creating space for the temporary variable
   struct s_Item *tempItem;
   // Assigning the temporary variable with the head of the list
   tempItem = (*list).root;
   // Iterating through the list
   while(tempItem != NULL){
-    // Checking if the id matches the id of each element
-    if(tempItem->id == id){
+    // Checking if the id matches the id of each element and if str in item is null or not
+    if(tempItem->id == id && tempItem->str != NULL){
       // Return the corrent element
       return tempItem->str;
     }
