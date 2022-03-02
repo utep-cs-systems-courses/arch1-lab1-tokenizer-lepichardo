@@ -14,15 +14,15 @@ void add_history(List *list, char *str){
   // Using temp variable with new space in the memory
   struct s_Item *tempItem = (Item*)malloc(sizeof(Item));
   // Assigning tempItem to the head of the list
-  tempItem = (*list).root;
+  tempItem = list->root;
   // int i to keep track of the id of the Item
   int i = 0;
   // while loop to iterarate through the list
   while(tempItem->next != NULL){
-    // Using the next pointer
-    tempItem = tempItem->next;
-    // Incrementint i to keep the id updated
-    i++;
+   // Using the next pointer
+   tempItem = tempItem->next;
+   // Incrementint i to keep the id updated
+   i++;
   }
   // Making more space in memory for the next Item
   tempItem->next = (Item*)malloc(sizeof(Item));
@@ -35,20 +35,28 @@ void add_history(List *list, char *str){
 }
 
 char *get_history(List *list, int id){
+  if(id == 0){
+    printf(list->root->str);
+    return list->root->str;
+  }
   // Creating space for the temporary variable
   struct s_Item *tempItem;
   // Assigning the temporary variable with the head of the list
   tempItem = (*list).root;
-  // Iterating through the list 
+  // Iterating through the list
+  int i = 0;
   while(tempItem != NULL){
     // Checking if the id matches the id of each element
+    //printf(tempItem->str);
     if(tempItem->id == id){
+      printf(tempItem->str);
       // Return the corrent element
       return tempItem->str;
     }
     // Keep looking for the element with the id
     tempItem = tempItem->next;
   }
+  printf("Invalid id...\n");
   // Return \0 if id not found
   return '\0';
 }
@@ -69,7 +77,7 @@ void print_history(List *list){
   // Iterating through the list with the while loop
   while(tempItem != NULL){
     // Printing the current elelment of the list
-    printf("str: %s,\tid: %d\n",tempItem->str, tempItem->id);
+    printf("History[%d]= %s\n",tempItem->id, tempItem->str);
     // Checking the next element of the list
     tempItem = tempItem->next;
   }
