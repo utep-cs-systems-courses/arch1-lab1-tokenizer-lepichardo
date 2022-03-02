@@ -45,7 +45,6 @@ int main(void){
       // Printing specific id of the history as tokens
       printf("Select id\n>");
       scanf("%d",&id);
-      printf("%d,",id);
       str = get_history(history, id);
       tokens = tokenize(str);
       print_tokens(tokens);
@@ -55,7 +54,6 @@ int main(void){
       // Printing specific id of history
       printf("Select id\n>");
       scanf("%d",&id);
-      printf("%d,",id);
       str = get_history(history, id);
       printf(str);
       break;

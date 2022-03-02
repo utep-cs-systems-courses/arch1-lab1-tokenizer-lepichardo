@@ -35,8 +35,8 @@ void add_history(List *list, char *str){
 }
 
 char *get_history(List *list, int id){
+  // Return first item in list
   if(id == 0){
-    printf(list->root->str);
     return list->root->str;
   }
   // Creating space for the temporary variable
@@ -44,12 +44,9 @@ char *get_history(List *list, int id){
   // Assigning the temporary variable with the head of the list
   tempItem = (*list).root;
   // Iterating through the list
-  int i = 0;
   while(tempItem != NULL){
     // Checking if the id matches the id of each element
-    //printf(tempItem->str);
     if(tempItem->id == id){
-      printf(tempItem->str);
       // Return the corrent element
       return tempItem->str;
     }
