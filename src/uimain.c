@@ -28,8 +28,8 @@ int main(void){
   int id;                                   // id of history
   
   while(inOut){
-    printf("\nEnter what you want to do next:(a to enter a string(followed by the string), p to print history, t to get specific id of the history as tokens, g to get a specific id of the history, f to free history, q to quit)\n>");
-    char c;
+    printf("\nEnter what you want to do next:(a to enter a string(followed by the string), p to print history, t to get specific id of the history as tokens, g to get a specific id of the history, q to quit)\n>");
+    char c; 
     while((c = getchar()) == '\n');
     switch(c){
     case 'a':
@@ -58,14 +58,11 @@ int main(void){
       str = get_history(history, id);
       printf(str);
       break;
-    case 'f':
-      // free the history
-      printf("Freeing history...\n");
-      free_history(history);
-      break;
     case 'q':
+      // Getting out and freeing history
       printf("Bye bye!\n\n");
       inOut = 0;
+      free_history(history);
       break;
     case '\n':
       break;

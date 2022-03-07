@@ -81,9 +81,9 @@ void free_history(List *list){
   while((*list).root->next != NULL){
     // Freeing eCH ELEMENT IN THE LIST
     free((*list).root->next);
-    // Accesiing the next element in the list
+    // Accessing the next element in the list
     (*list).root->next = (*list).root->next->next;
   }
   // Freeing the root
-  free((*list).root);
+  free(list);
 }
